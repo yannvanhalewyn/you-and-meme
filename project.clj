@@ -18,7 +18,11 @@
 
   :profiles {:dev {:dependencies [[binaryage/devtools "0.9.4"]]
 
-                   :plugins      [[lein-figwheel "0.5.13"]]}}
+                   :plugins      [[lein-figwheel "0.5.13"]]}
+             :uberjar {:main eline-proj.core
+                       :aot :all}}
+
+  :uberjar-name "eline-proj.jar"
 
   :cljsbuild {:builds
               [{:id           "dev"
