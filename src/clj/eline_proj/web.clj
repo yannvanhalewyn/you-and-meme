@@ -13,15 +13,17 @@
              :keywordize true}
     :static {:resources "public"}))
 
-(defn make-handler [options]
-  (wrap-defaults routes/app-routes app-defaults))
+(defn make-handler [chsk]
+  (-> routes/app-routes
+      (routes/wrap-chsk-routes chsk)
+      (wrap-defaults app-defaults)))
 
-(defrecord Web [options]
+(defrecord Web [options chsk]
   c/Lifecycle
   (start [this]
     (if (:server this)
       this
-      (let [handler (make-handler options)
+      (let [handler (make-handler chsk)
             port (:port options)]
         (println (format "Starting server on port %s" port))
         (assoc this :server (http-kit/run-server handler {:port port})))))
@@ -33,3 +35,5 @@
         (.stop (:server this))
         (assoc this :server nil))
       this)))
+
+(defn make [opts] (map->Web {:options opts}))
