@@ -28,7 +28,7 @@
 (defmulti socket-handler "Multimethod for handling socket messages" :id)
 
 (defmethod socket-handler :default [{:keys [event ?reply-fn]}]
-  (when-not (= :chsk/ws-ping event)
+  (when-not (= [:chsk/ws-ping] event)
     (println "Unhandled event" event)))
 
 (defmethod socket-handler :videos/create
