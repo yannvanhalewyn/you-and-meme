@@ -5,7 +5,6 @@
             [eline-proj.views :as views]
             [eline-proj.config :as config]))
 
-
 (defn dev-setup []
   (when config/debug?
     (enable-console-print!)

@@ -23,5 +23,5 @@
    :video/title (:title snippet)
    :video/thumb (get-in (:thumbnails snippet) [:high :url])})
 
-(defn- get-random-video []
+(defn get-random-video []
   (parse-item (first (get-random-videos 1))))

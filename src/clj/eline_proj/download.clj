@@ -4,7 +4,7 @@
             [clojure.string :as str])
   (:import java.net.URLDecoder))
 
-(def URL_FMT "http://www.youtube.com/get_video_info?video_id=%s&el=embedded&ps=default&eurl=&gl=US&hl=en")
+(def URL_FMT "http://www.youtube.com/get_video_info?video_id=%s&el=embedded&ps=default")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Decoding
@@ -38,6 +38,5 @@
 
 (defn download [video-id dir]
   (-> (video-stream-map video-id)
-      select-candidate
-      :url
+      select-candidate :url
       (download* (io/file (str dir video-id ".mp4")))))

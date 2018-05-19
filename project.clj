@@ -4,7 +4,12 @@
                  [reagent "0.7.0"]
                  [re-frame "0.10.5"]
                  [clj-http "3.9.0"]
-                 [cheshire "5.8.0"]]
+                 [cheshire "5.8.0"]
+                 [compojure "1.6.1"]
+                 [com.stuartsierra/component "0.3.2"]
+                 [compojure "1.6.1"]
+                 [ring/ring-jetty-adapter "1.6.3"]
+                 [ring/ring-defaults "0.3.1"]]
 
   :plugins [[lein-cljsbuild "1.1.5"]]
 
@@ -16,13 +21,17 @@
 
   :figwheel {:css-dirs ["resources/public/css"]}
 
-  :profiles {:dev {:dependencies [[binaryage/devtools "0.9.4"]]
-
-                   :plugins      [[lein-figwheel "0.5.13"]]}
+  :profiles {:dev {:dependencies [[binaryage/devtools "0.9.4"]
+                                  [com.cemerick/piggieback "0.2.2"]
+                                  [figwheel-sidecar "0.5.16"]
+                                  [reloaded.repl "0.2.4"]]
+                   :source-paths ["src/clj" "env/dev"]}
              :uberjar {:main eline-proj.core
                        :aot :all}}
 
   :uberjar-name "eline-proj.jar"
+
+  :jvm-opts ["--add-modules" "java.xml.bind"]
 
   :cljsbuild {:builds
               [{:id           "dev"
