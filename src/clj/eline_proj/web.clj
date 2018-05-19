@@ -3,7 +3,7 @@
             [com.stuartsierra.component :as c]
             [ring.middleware.defaults :refer [api-defaults
                                               wrap-defaults]]
-            [ring.adapter.jetty :as jetty]))
+            [org.httpkit.server :as http-kit]))
 
 (def app-defaults
   (assoc api-defaults
@@ -22,10 +22,9 @@
     (if (:server this)
       this
       (let [handler (make-handler options)
-            port (:port options)
-            server-options {:port port :join? false}]
+            port (:port options)]
         (println (format "Starting server on port %s" port))
-        (assoc this :server (jetty/run-jetty handler server-options)))))
+        (assoc this :server (http-kit/run-server handler {:port port})))))
 
   (stop [this]
     (if (:server this)

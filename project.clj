@@ -8,7 +8,8 @@
                  [compojure "1.6.1"]
                  [com.stuartsierra/component "0.3.2"]
                  [compojure "1.6.1"]
-                 [ring/ring-jetty-adapter "1.6.3"]
+                 [http-kit "2.2.0"]
+                 [com.taoensso/sente "1.12.0"]
                  [ring/ring-defaults "0.3.1"]]
 
   :plugins [[lein-cljsbuild "1.1.5"]]
