@@ -1,0 +1,36 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #E9724C;
+}
+
+.btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.btn {
+  cursor: pointer;
+  color: white;
+  background: #255F85;
+  font-size: 2em;
+  padding: 50px;
+  border: none;
+  border-radius: 4px;
+  width: 50%;
+}
+
+.btn:hover {
+  background: #1a425d;
+}
+
+.btn:active {
+  background: #143449;
+}
+
+.btn[disabled] {
+  background: #255F85;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: default;
+}

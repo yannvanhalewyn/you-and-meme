@@ -4,5 +4,8 @@
             ))
 
 (defn main-panel []
-  (let [name (re-frame/subscribe [::subs/name])]
-    [:div "Hello from " @name]))
+  [:div
+   [:div.btn-wrapper
+    [:button.btn
+     {:on-click #(js/alert "hoi")}
+     "Click voor een random video!"]]])
