@@ -1,8 +1,9 @@
 (ns eline-proj.core
   (:gen-class)
-  (:require [eline-proj.youtube :as yt]
-            [eline-proj.download :refer [download]]))
+  (:require [eline-proj.system :refer [new-system]]
+            [com.stuartsierra.component :as c]
+            [clojure.java.browse :refer [browse-url]]))
 
 (defn -main [& args]
-  (let [v (yt/get-random-video)]
-    (download (:video/id v) "videos/")))
+  (c/start (new-system))
+  (browse-url "http://localhost:8080"))

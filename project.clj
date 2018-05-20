@@ -28,6 +28,7 @@
                                   [reloaded.repl "0.2.4"]]
                    :source-paths ["src/clj" "env/dev"]}
              :uberjar {:main eline-proj.core
+                       :prep-tasks ["compile" ["cljsbuild" "once" "prod"]]
                        :aot :all}}
 
   :uberjar-name "eline-proj.jar"
@@ -46,7 +47,7 @@
                                :preloads             [devtools.preload]
                                :external-config      {:devtools/config {:features-to-install :all}}}}
 
-               {:id           "min"
+               {:id           "prod"
                 :source-paths ["src/cljs"]
                 :compiler     {:main            eline_proj.core
                                :output-to       "resources/public/js/compiled/app.js"
