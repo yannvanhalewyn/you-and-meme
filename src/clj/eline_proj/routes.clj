@@ -1,5 +1,7 @@
 (ns eline-proj.routes
-  (:require [clojure.java.io :as io]
+  (:require [eline-proj.youtube :as yt]
+            [eline-proj.download :as dl]
+            [clojure.java.io :as io]
             [compojure.route :as route]
             [compojure.core :as comp :refer [GET POST defroutes]]))
 
@@ -28,12 +30,21 @@
 (defmulti socket-handler "Multimethod for handling socket messages" :id)
 
 (defmethod socket-handler :default [{:keys [event ?reply-fn]}]
-  (when-not (= [:chsk/ws-ping] event)
-    (println "Unhandled event" event)))
+  (println "Unhandled event" event))
 
-(defmethod socket-handler :videos/create
-  [{:keys [?data ring-req ?reply-fn]}]
-  {:foo "bar"})
+(defmethod socket-handler :chsk/ws-ping [evt] nil)
+
+(defmethod socket-handler :video/request-random
+  [{:keys [send-fn uid] :as event}]
+  (let [video (yt/get-random-video)]
+    (future
+      (try
+        (dl/download (:video/id video) "videos/")
+        (send-fn uid [:video-request/download-ready])
+        (catch Exception e
+          (println "Er ging iets mis!" e)
+          (send-fn uid [:video-request/download-failed]))))
+    [:video-request/download-started video]))
 
 (defn- wrap-reply
   "Wraps a handler and calls the reply fn if any"

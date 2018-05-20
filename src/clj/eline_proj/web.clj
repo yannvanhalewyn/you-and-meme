@@ -29,10 +29,10 @@
         (assoc this :server (http-kit/run-server handler {:port port})))))
 
   (stop [this]
-    (if (:server this)
+    (if-let [stop (:server this)]
       (do
         (println "Stopping web server...")
-        (.stop (:server this))
+        (stop)
         (assoc this :server nil))
       this)))
 

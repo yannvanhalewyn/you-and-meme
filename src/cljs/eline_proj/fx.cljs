@@ -1,6 +1,9 @@
 (ns eline-proj.fx
-  (:require [re-frame.core :as rf]
+  (:require [eline-proj.chsk :as chsk]
+            [re-frame.core :as rf]
             [clojure.data :refer [diff]]))
+
+(rf/reg-fx :socket chsk/sock-fx)
 
 (def debug-logger
   (rf/->interceptor

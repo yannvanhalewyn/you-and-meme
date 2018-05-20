@@ -1,9 +1,15 @@
 body {
+  color: white;
   font-family: 'Roboto', sans-serif;
   background: #E9724C;
 }
 
-.btn-wrapper {
+.text-centered {
+  text-align: center;
+  height: 100vh;
+}
+
+.flex-centered {
   display: flex;
   align-items: center;
   justify-content: center;

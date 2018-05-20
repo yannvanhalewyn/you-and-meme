@@ -4,10 +4,6 @@
             [taoensso.sente :as sente]
             [taoensso.sente.server-adapters.http-kit :refer [get-sch-adapter]]))
 
-(defn broadcast [chsk msg]
-  (doseq [uid (:any @(:connected-uids chsk))]
-    ((:send-fn chsk) uid msg)))
-
 (def SENTE_KEYS [:ajax-get-or-ws-handshake-fn
                  :ajax-post-fn :ch-recv :send-fn])
 
