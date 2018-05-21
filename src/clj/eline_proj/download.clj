@@ -39,4 +39,4 @@
 (defn download [video-id dir]
   (-> (video-stream-map video-id)
       select-candidate :url
-      (download* (io/file (str dir video-id ".mp4")))))
+      (download* (io/file (str dir video-id ".mov")))))
