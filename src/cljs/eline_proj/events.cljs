@@ -9,8 +9,9 @@
 
 (reg-event-fx
  :video/request-random
- (fn [_ [_ & data]]
-   {:socket [:video/request-random]}))
+ (fn [{:keys [db]} [_ & data]]
+   {:db (assoc db :db/request-status :request/pending)
+    :socket [:video/request-random]}))
 
 (reg-event-db
  :route/home
@@ -19,6 +20,11 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CHSK
+
+(defn- assoc-failure [db]
+  (assoc db
+    :db/panel :panel/main
+    :db/request-status :request/failed))
 
 (reg-event-db
  :video-request/download-started
@@ -41,14 +47,17 @@
  (fn [db [_ [evt]]]
    (case evt
      :video-request/download-ready
-     (assoc db :db/panel :panel/download-ready)
+     (assoc db
+       :db/panel :panel/download-ready
+       :db/request-status :status/success)
 
      :video-request/download-failed
-     (assoc db :db/panel :panel/main)
+     (assoc-failure db)
 
      db)))
 
-(reg-event-fx
+(reg-event-db
  :chsk/failed
- (fn [_ [evt data]]
-   (.error js/console "CHSK fail:" data)))
+ (fn [db [evt data]]
+   (.error js/console "CHSK fail:" data)
+   (assoc-failure db)))
