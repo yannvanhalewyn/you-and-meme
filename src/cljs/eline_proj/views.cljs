@@ -19,7 +19,9 @@
         [:div
          [:img {:src (:video/thumb video)}]]
         [:h3 (video-title video)]
-        [:span "Downloaden.. " [:div.spinning {:style {:margin-left "4px"}} "▶"]]]]
+        [:span "Downloaden.. "
+         [:div.spinning.small-icon
+          [button/component]]]]]
 
       :panel/download-ready
       [:div

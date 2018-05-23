@@ -54,6 +54,26 @@ a {
   fill: #FF3333;
 }
 
+.small-icon {
+  position: relative;
+  top: 14px;
+  right: 4px;
+}
+
+.small-icon svg {
+  margin-top: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.small-icon #icon__circle {
+  stroke: none;
+}
+
+.small-icon #icon__arrows { fill: white; }
+.small-icon #icon__arrow-outlines { fill: black; }
+.small-icon #icon__play { fill: black; }
+
 /* Animations
 ------------- */
 
