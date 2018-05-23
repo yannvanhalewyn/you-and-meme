@@ -1,6 +1,7 @@
 (ns eline-proj.views
-  (:require [re-frame.core :refer [dispatch subscribe]]
-            [eline-proj.subs :as subs]))
+  (:require [eline-proj.subs :as subs]
+            [eline-proj.views.button :as button]
+            [re-frame.core :refer [dispatch subscribe]]))
 
 (defn main-panel []
   (let [panel @(subscribe [::subs/panel])
@@ -29,7 +30,8 @@
       [:div
        [:div.flex-centered
         [:h2 "[ YOU AND MEME ]"]
+
         [:button.btn {:class (when (= :request/pending status) "spinning")
                       :on-click #(dispatch [:video/request-random])}
-         [:span.btn__icon "▶"]]
+         [button/component]]
         [:h3 "Push the button to add a random video"]]])))

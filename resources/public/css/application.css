@@ -18,11 +18,6 @@ a {
   color: #009eff;
 }
 
-.text-centered {
-  text-align: center;
-  height: 100vh;
-}
-
 .flex-centered {
   display: flex;
   align-items: center;
@@ -32,26 +27,29 @@ a {
   padding: 50px;
 }
 
+/* Main button and icon
+----------------------- */
+
 .btn {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: 2px solid #FF3333;
-  color: #FF3333;
+  background: none;
+  border: none;
   cursor: pointer;
+  border-radius: 50%;
   outline: none;
 }
 
-.btn__icon {
-  position: relative;
-  bottom: 3px;
-  left: 10px;
-  font-size: 13em;
+.btn:hover #icon__play,
+.btn:active #icon__play,
+.btn:hover #icon__arrow-outlines,
+.btn:active #icon__arrows-outlines {
+  fill: white;
 }
 
-.btn:active, .btn:hover {
-  background: #FF3333;
-  color: white;
+.btn:hover #icon__arrows,
+.btn:active #icon__arrows,
+.btn:hover #icon__circle,
+.btn:active #icon_circle {
+  fill: #FF3333;
 }
 
 /* Animations
