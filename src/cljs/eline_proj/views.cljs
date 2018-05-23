@@ -4,26 +4,27 @@
 
 (defn main-panel []
   (let [panel @(subscribe [::subs/panel])
-        video @(subscribe [::subs/current-video])]
+        video @(subscribe [::subs/current-video])
+        status @(subscribe [::subs/request-status])]
+
     (case panel
       :panel/awaiting-download
       [:div
-       [:div.text-centered
-        [:h1 "Random video gevonden:"]
+       [:div.flex-centered
+        [:h1 "Random video gevonden"]
         [:div
          [:img {:src (:video/thumb video)}]]
-        [:h2 (:video/title video)]
-        "downloaden..."]]
+        [:h3 (:video/title video)]
+        [:span "Downloaden.. " [:div.spinning {:style {:margin-left "4px"}} "▶"]]]]
 
       :panel/download-ready
       [:div
-       [:div.text-centered
+       [:div.flex-centered
         [:h1 "Download klaar!"]
         [:div
          [:img {:src (:video/thumb video)}]]
-        [:h2 (:video/title video)]
-        [:button.btn {:on-click #(dispatch [:route/home])}
-         "Klik"]]]
+        [:h3 (:video/title video)]
+        [:a {:href "#" :on-click #(dispatch [:route/home])} "Nieuwe video aanvragen"]]]
 
       [:div
        [:div.flex-centered
