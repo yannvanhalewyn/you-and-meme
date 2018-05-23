@@ -27,6 +27,8 @@
 
       [:div
        [:div.flex-centered
+        [:h2 "[ YOU AND MEME ]"]
         [:button.btn
          {:on-click #(dispatch [:video/request-random])}
-         "Click voor een random video!"]]])))
+         [:span.btn__icon "▶"]]
+        [:h3 "Push the button to add a random video"]]])))

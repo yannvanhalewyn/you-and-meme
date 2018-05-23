@@ -1,7 +1,14 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
-  color: white;
-  font-family: 'Roboto', sans-serif;
-  background: #E9724C;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h2, h3 {
+  font-weight: 300;
+  font-size: 1.8em;
 }
 
 .text-centered {
@@ -12,31 +19,27 @@ body {
 .flex-centered {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   height: 100vh;
+  padding: 50px;
 }
 
 .btn {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid #FF3333;
+  color: #FF3333;
   cursor: pointer;
+}
+
+.btn__icon {
+  font-size: 13em;
+  margin-left: 20px;
+}
+
+.btn:active, .btn:hover {
+  background: #FF3333;
   color: white;
-  background: #255F85;
-  font-size: 2em;
-  padding: 50px;
-  border: none;
-  border-radius: 4px;
-  width: 50%;
-}
-
-.btn:hover {
-  background: #1a425d;
-}
-
-.btn:active {
-  background: #143449;
-}
-
-.btn[disabled] {
-  background: #255F85;
-  color: rgba(255, 255, 255, 0.9);
-  cursor: default;
 }
