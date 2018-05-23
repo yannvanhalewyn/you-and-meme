@@ -3,6 +3,9 @@
             [eline-proj.views.button :as button]
             [re-frame.core :refer [dispatch subscribe]]))
 
+(defn- video-title [{:keys [video/title]}]
+  (str "[ " title " ]"))
+
 (defn main-panel []
   (let [panel @(subscribe [::subs/panel])
         video @(subscribe [::subs/current-video])
@@ -12,25 +15,23 @@
       :panel/awaiting-download
       [:div
        [:div.flex-centered
-        [:h1 "Random video gevonden"]
+        [:h1 "Video Found!"]
         [:div
          [:img {:src (:video/thumb video)}]]
-        [:h3 (:video/title video)]
+        [:h3 (video-title video)]
         [:span "Downloaden.. " [:div.spinning {:style {:margin-left "4px"}} "▶"]]]]
 
       :panel/download-ready
       [:div
        [:div.flex-centered
-        [:h1 "Download klaar!"]
-        [:div
-         [:img {:src (:video/thumb video)}]]
-        [:h3 (:video/title video)]
-        [:a {:href "#" :on-click #(dispatch [:route/home])} "Nieuwe video aanvragen"]]]
+        [:a {:href "#" :on-click #(dispatch [:route/home])} "<< Go back to main page"]
+        [:div [:img {:src (:video/thumb video)}]]
+        [:h3 (video-title video)]
+        [:h2 "Download klaar."]]]
 
       [:div
        [:div.flex-centered
         [:h2 "[ YOU AND MEME ]"]
-
         [:button.btn {:class (when (= :request/pending status) "spinning")
                       :on-click #(dispatch [:video/request-random])}
          [button/component]]
