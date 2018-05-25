@@ -2,6 +2,8 @@
 
 A [re-frame](https://github.com/Day8/re-frame) application made to help a friend of mine in art school. It will spin of a web server which show a button, when that button is pressed it will pick a random video from youtube and download it. The project would involve her live VJ'ing random internet video's,  and the audience would trigger the downloading / selecting of those new random videos.
 
+![screenshot](https://raw.githubusercontent.com/yannvanhalewyn/you-and-meme/master/resources/img/screenshot.png)
+
 ## Development Mode
 
 ### Run application:
