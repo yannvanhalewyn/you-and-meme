@@ -1,4 +1,4 @@
-(ns eline-proj.subs
+(ns you-and-meme.subs
   (:require [re-frame.core :as re-frame]))
 
 (re-frame/reg-sub ::panel :db/panel)

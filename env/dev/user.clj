@@ -1,5 +1,5 @@
 (ns user
-  (:require [eline-proj.system :refer [new-system]]
+  (:require [you-and-meme.system :refer [new-system]]
             [figwheel-sidecar.system :as sys]
             [com.stuartsierra.component :as c]
             [clojure.tools.namespace.repl :refer [refresh refresh-all]]

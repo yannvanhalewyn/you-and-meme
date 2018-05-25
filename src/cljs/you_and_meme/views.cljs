@@ -1,6 +1,6 @@
-(ns eline-proj.views
-  (:require [eline-proj.subs :as subs]
-            [eline-proj.views.button :as button]
+(ns you-and-meme.views
+  (:require [you-and-meme.subs :as subs]
+            [you-and-meme.views.button :as button]
             [re-frame.core :refer [dispatch subscribe]]))
 
 (defn- video-title [{:keys [video/title]}]

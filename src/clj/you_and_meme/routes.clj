@@ -1,6 +1,6 @@
-(ns eline-proj.routes
-  (:require [eline-proj.youtube :as yt]
-            [eline-proj.download :as dl]
+(ns you-and-meme.routes
+  (:require [you-and-meme.youtube :as yt]
+            [you-and-meme.download :as dl]
             [clojure.java.io :as io]
             [compojure.route :as route]
             [compojure.core :as comp :refer [GET POST defroutes]]))

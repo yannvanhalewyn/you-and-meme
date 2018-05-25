@@ -1,4 +1,4 @@
-(defproject eline-proj "0.1.0-SNAPSHOT"
+(defproject you-and-meme "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.908"]
                  [reagent "0.7.0"]
@@ -27,19 +27,19 @@
                                   [figwheel-sidecar "0.5.16"]
                                   [reloaded.repl "0.2.4"]]
                    :source-paths ["src/clj" "env/dev"]}
-             :uberjar {:main eline-proj.core
+             :uberjar {:main you-and-meme.core
                        :prep-tasks ["compile" ["cljsbuild" "once" "prod"]]
                        :aot :all}}
 
-  :uberjar-name "eline-proj.jar"
+  :uberjar-name "you-and-meme.jar"
 
   :jvm-opts ["--add-modules" "java.xml.bind"]
 
   :cljsbuild {:builds
               [{:id           "dev"
                 :source-paths ["src/cljs"]
-                :figwheel     {:on-jsload "eline_proj.core/mount-root"}
-                :compiler     {:main                 eline_proj.core
+                :figwheel     {:on-jsload "you_and_meme.core/mount-root"}
+                :compiler     {:main                 you_and_meme.core
                                :output-to            "resources/public/js/compiled/app.js"
                                :output-dir           "resources/public/js/compiled/out"
                                :asset-path           "js/compiled/out"
@@ -49,7 +49,7 @@
 
                {:id           "prod"
                 :source-paths ["src/cljs"]
-                :compiler     {:main            eline_proj.core
+                :compiler     {:main            you_and_meme.core
                                :output-to       "resources/public/js/compiled/app.js"
                                :optimizations   :advanced
                                :closure-defines {goog.DEBUG false}

@@ -1,7 +1,7 @@
-(ns eline-proj.youtube
+(ns you-and-meme.youtube
   (:require [clj-http.client :as http]))
 
-(def API_KEY "***")
+(def API_KEY "AIzaSyAyRpnXbxrluKuxLqWDEq3RCoIk-M9Iizs")
 
 (defn- rand-str [size]
   (let [chars (map char (concat (range 48 58) (range 65 91)))]

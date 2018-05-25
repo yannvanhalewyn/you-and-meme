@@ -1,5 +1,5 @@
-(ns eline-proj.chsk
-  (:require [eline-proj.routes :refer [chsk-handler]]
+(ns you-and-meme.chsk
+  (:require [you-and-meme.routes :refer [chsk-handler]]
             [com.stuartsierra.component :as c]
             [taoensso.sente :as sente]
             [taoensso.sente.server-adapters.http-kit :refer [get-sch-adapter]]))

@@ -1,7 +1,7 @@
-(ns eline-proj.core
+(ns you-and-meme.core
   (:gen-class)
   (:import [java.net InetAddress])
-  (:require [eline-proj.system :refer [new-system]]
+  (:require [you-and-meme.system :refer [new-system]]
             [com.stuartsierra.component :as c]
             [clojure.java.browse :refer [browse-url]]
             [clojure.string :as str]))

@@ -1,5 +1,5 @@
-(ns eline-proj.web
-  (:require [eline-proj.routes :as routes]
+(ns you-and-meme.web
+  (:require [you-and-meme.routes :as routes]
             [com.stuartsierra.component :as c]
             [ring.middleware.defaults :refer [api-defaults
                                               wrap-defaults]]

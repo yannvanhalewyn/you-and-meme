@@ -1,6 +1,6 @@
-(ns eline-proj.system
-  (:require [eline-proj.web :as web]
-            [eline-proj.chsk :as chsk]
+(ns you-and-meme.system
+  (:require [you-and-meme.web :as web]
+            [you-and-meme.chsk :as chsk]
             [com.stuartsierra.component :as c]))
 
 (defn new-system []

@@ -1,10 +1,10 @@
-(ns eline-proj.core
-  (:require [eline-proj.chsk :as chsk]
+(ns you-and-meme.core
+  (:require [you-and-meme.chsk :as chsk]
             [reagent.core :as reagent]
             [re-frame.core :as re-frame]
-            [eline-proj.events :as events]
-            [eline-proj.views :as views]
-            [eline-proj.config :as config]))
+            [you-and-meme.events :as events]
+            [you-and-meme.views :as views]
+            [you-and-meme.config :as config]))
 
 (defn dev-setup []
   (when config/debug?

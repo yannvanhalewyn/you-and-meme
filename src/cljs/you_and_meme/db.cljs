@@ -1,4 +1,4 @@
-(ns eline-proj.db)
+(ns you-and-meme.db)
 
 (def default-db
   {:name "re-frame"})

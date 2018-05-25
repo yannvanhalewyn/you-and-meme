@@ -1,4 +1,4 @@
-(ns eline-proj.chsk
+(ns you-and-meme.chsk
   (:require-macros [cljs.core.async.macros :as asyncm :refer [go go-loop]])
   (:require [clojure.core.async :as async :refer [<! >! put! chan]]
             [taoensso.sente  :as sente :refer (cb-success?)]

@@ -1,4 +1,4 @@
-(ns eline-proj.download
+(ns you-and-meme.download
   (:require [clj-http.client :as http]
             [clojure.java.io :as io]
             [clojure.string :as str])

@@ -1,5 +1,5 @@
-(ns eline-proj.fx
-  (:require [eline-proj.chsk :as chsk]
+(ns you-and-meme.fx
+  (:require [you-and-meme.chsk :as chsk]
             [re-frame.core :as rf]
             [clojure.data :refer [diff]]))
 

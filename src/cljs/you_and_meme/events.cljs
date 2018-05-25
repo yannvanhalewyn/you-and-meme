@@ -1,6 +1,6 @@
-(ns eline-proj.events
-  (:require [eline-proj.fx :refer [reg-event-db reg-event-fx]]
-            [eline-proj.db :as db]))
+(ns you-and-meme.events
+  (:require [you-and-meme.fx :refer [reg-event-db reg-event-fx]]
+            [you-and-meme.db :as db]))
 
 (reg-event-db
  ::initialize-db
