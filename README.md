@@ -1,19 +1,19 @@
-# eline_proj
+# You and meme
 
-A [re-frame](https://github.com/Day8/re-frame) application designed to ... well, that part is up to you.
+A [re-frame](https://github.com/Day8/re-frame) application made to help a friend of mine in art school. It will spin of a web server which show a button, when that button is pressed it will pick a random video from youtube and download it. The project would involve her live VJ'ing random internet video's,  and the audience would trigger the downloading / selecting of those new random videos.
 
 ## Development Mode
 
 ### Run application:
 
 ```
-lein clean
-lein figwheel dev
+lein repl
+=> (go)
 ```
 
-Figwheel will automatically push cljs changes to the browser.
+Wait a bit, then browse to [http://localhost:8080](http://localhost:8080).
 
-Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
+This will start the web server, chsk router and figwheel will push any cljs changes to the browser.
 
 ## Production Build
 
@@ -21,6 +21,7 @@ Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
 To compile clojurescript to javascript:
 
 ```
-lein clean
-lein cljsbuild once min
+lein uberjar
 ```
+
+Will produce a standalone jar in `target/you_and_meme.jar`
